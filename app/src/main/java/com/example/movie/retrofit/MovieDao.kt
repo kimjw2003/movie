@@ -13,6 +13,7 @@ interface MovieDao {
         @Query("detail") detail : String,
         @Query("ServiceKey") ServiceKey : String,
         @Query("nation") nation : String,
-        @Query("releaseDts") releaseDts : String
+        @Query("releaseDts") releaseDts : String,
+        @Query("movieSeq") movieSeq : String
     ): Call<Base>
 }
