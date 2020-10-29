@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMovie(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", "대한민국",
-             ""+search_Et.text.toString(), ""
+             ""+search_Et.text.toString(), "", "극영화"
         ).enqueue(object : retrofit2.Callback<Base> {
             @SuppressLint("CheckResult")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
@@ -37,9 +37,9 @@ class MainActivity : AppCompatActivity() {
                 // 포스터 1개만 보여주기
                 var idx:Int = poster.indexOf("|")
 
-                // 만약에 검색결과 영화가 2개이상이면
-                if(response.body()?.TotalCount == 1){
-                Log.d("Logd", poster.substring(0, idx))
+                // 만약에 검색결과 영화가 1개면
+                if(response.body()?.TotalCount.toString() == "1"){
+                Log.d("Logd", "1")
                 // 포스터 적용
                 Glide.with(poster_Iv)
                     .load(poster.substring(0, idx))
@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
                     actor2_Tv.text =
                         response.body()?.Data?.get(0)?.Result?.get(0)?.actors?.actor?.get(1)?.actorNm
                     }
+                }else {
+                    Log.d("Logd","검색된 영화 수 : "+ response.body()?.TotalCount.toString())
                 }
 
             }
