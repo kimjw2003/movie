@@ -14,6 +14,7 @@ interface MovieDao {
         @Query("ServiceKey") ServiceKey : String,
         @Query("nation") nation : String,
         @Query("releaseDts") releaseDts : String,
+        @Query("title") title : String,
         @Query("movieSeq") movieSeq : String
     ): Call<Base>
 }

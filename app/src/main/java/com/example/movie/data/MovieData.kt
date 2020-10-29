@@ -32,7 +32,8 @@ data class Result(
     val rating: String?,
     val genre: String?,
     val kmdbUrl: String?,
-    val repRlsDate : String
+    val repRlsDate : String,
+    val posters : String
 )
 
 data class Actors(
