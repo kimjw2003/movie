@@ -26,29 +26,38 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMovie(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", "대한민국",
-            "20201015", ""+search_Et.text.toString(), ""
+             ""+search_Et.text.toString(), ""
         ).enqueue(object : retrofit2.Callback<Base> {
             @SuppressLint("CheckResult")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
                 Log.d("Logd", "good")
 
+                // 포스터 선언하기
                 var poster:String = response.body()?.Data?.get(0)?.Result?.get(0)?.posters!!
-
+                // 포스터 1개만 보여주기
                 var idx:Int = poster.indexOf("|")
-                Log.d("Logd", poster.substring(0, idx))
 
+                // 만약에 검색결과 영화가 2개이상이면
+                if(response.body()?.TotalCount == 1){
+                Log.d("Logd", poster.substring(0, idx))
+                // 포스터 적용
                 Glide.with(poster_Iv)
                     .load(poster.substring(0, idx))
                     .into(poster_Iv)
 
+                //제목 ^앞까지만 보여주기
                 var idx2:Int = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.indexOf("^")
-
+                // 제목 보여주기
                 title_Tv.text = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.substring(0, idx2)
+                // 주연배우
                 actor_Tv.text = response.body()?.Data?.get(0)?.Result?.get(0)?.actors?.actor?.get(0)?.actorNm
+                //주연배우가 2명이상일 경우 if문 실행
                 if(response.body()?.Data?.get(0)?.Result?.get(0)?.actors?.actor?.size!! > 1) {
                     actor2_Tv.text =
                         response.body()?.Data?.get(0)?.Result?.get(0)?.actors?.actor?.get(1)?.actorNm
+                    }
                 }
+
             }
 
             override fun onFailure(call: Call<Base>, t: Throwable) {
