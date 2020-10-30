@@ -61,5 +61,6 @@ data class Plots(
 )
 
 data class Plot(
-    val plotLang: String?, val plotText: String?
+    val plotLang: String?,
+    val plotText: String?
 )

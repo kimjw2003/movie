@@ -38,14 +38,14 @@ class MainActivity : AppCompatActivity() {
                 var idx:Int = poster.indexOf("|")
 
                 // 만약에 검색결과 영화가 1개면
-                if(response.body()?.TotalCount.toString() == "1"){
+                if(response.body()?.TotalCount.toString() == "1") {
                 Log.d("Logd", "1")
                 // 포스터 적용
                 Glide.with(poster_Iv)
                     .load(poster.substring(0, idx))
                     .into(poster_Iv)
 
-                //제목 ^앞까지만 보여주기
+                //제목 ^앞까지만 보여주라고 설정하기
                 var idx2:Int = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.indexOf("^")
                 // 제목 보여주기
                 title_Tv.text = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.substring(0, idx2)
