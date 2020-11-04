@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:layout_margin="5dp"
-    android:padding="1dp">
+    android:background="@drawable/rcview_teduri"
+    >
 
     <ImageView
         android:id="@+id/movie_poster_Iv"
