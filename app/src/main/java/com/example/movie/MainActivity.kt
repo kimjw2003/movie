@@ -3,16 +3,17 @@ package com.example.movie
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
 import android.util.Log
-import android.widget.ImageView
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
+import com.example.movie.adapter.RcViewAdapter
 import com.example.movie.data.Base
+import com.example.movie.data.MovieData
 import com.example.movie.retrofit.MovieClient
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.rcView
 import retrofit2.Call
 import retrofit2.Response
-import javax.security.auth.callback.Callback
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,16 +40,29 @@ class MainActivity : AppCompatActivity() {
 
                 // 만약에 검색결과 영화가 1개면
                 if(response.body()?.TotalCount.toString() == "1") {
-                Log.d("Logd", "1")
+                Log.d("Logd", "movie 개수 = 1")
                 // 포스터 적용
                 Glide.with(poster_Iv)
                     .load(poster.substring(0, idx))
                     .into(poster_Iv)
 
+
+
                 //제목 ^앞까지만 보여주라고 설정하기
                 var idx2:Int = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.indexOf("^")
                 // 제목 보여주기
                 title_Tv.text = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.substring(0, idx2)
+
+                    //리사이클러뷰 리스트 시1발
+                    var list = ArrayList<MovieData>()
+                    list.add(MovieData(response.body()?.Data?.get(0)?.Result?.get(0)?.titleEtc!!.substring(0, idx2),
+                        response.body()?.Data?.get(0)?.Result?.get(0)?.actors?.actor?.get(0)?.actorNm!!, poster.substring(0, idx)))
+
+                    val adapter = RcViewAdapter(list)
+                    rcView.adapter = adapter
+                    rcView.layoutManager = LinearLayoutManager(this@MainActivity)
+
+
                 // 주연배우
                 actor_Tv.text = response.body()?.Data?.get(0)?.Result?.get(0)?.actors?.actor?.get(0)?.actorNm
                 //주연배우가 2명이상일 경우 if문 실행
