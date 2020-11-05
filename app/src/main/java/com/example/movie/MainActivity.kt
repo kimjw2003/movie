@@ -4,6 +4,9 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.example.movie.adapter.RcViewAdapter
@@ -16,9 +19,25 @@ import retrofit2.Call
 import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        var countryList = listOf("선택해 주세요","대한민국", "미국")
+
+        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, countryList)
+        country_Sp.adapter = adapter
+        country_Sp.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                val selectedValue = countryList[position]
+                country.text = selectedValue
+            }
+
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+        }
 
         search_Btn.setOnClickListener {
             getMovie()
@@ -26,7 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getMovie(){
-        MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", "대한민국",
+        MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", ""+country.text.toString(),
              ""+search_Et.text.toString(), "", "극영화", "20"
         ).enqueue(object : retrofit2.Callback<Base> {
             @SuppressLint("CheckResult")

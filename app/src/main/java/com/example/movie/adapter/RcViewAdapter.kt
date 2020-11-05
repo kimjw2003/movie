@@ -1,5 +1,6 @@
 package com.example.movie.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.movie.DetailActivity
 import com.example.movie.R
 import com.example.movie.data.MovieData
 import kotlinx.android.synthetic.main.activity_main.view.*
@@ -27,6 +29,11 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
             Glide.with(itemView.context)
                 .load(data.poster)
                 .into(poster)
+
+            itemView.setOnClickListener {
+                val intent = Intent(itemView.context, DetailActivity::class.java)
+                itemView.context.startActivity(intent)
+            }
         }
     }
 
