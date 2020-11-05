@@ -32,6 +32,9 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
 
             itemView.setOnClickListener {
                 val intent = Intent(itemView.context, DetailActivity::class.java)
+                intent.putExtra("title", data.title)
+                intent.putExtra("actor", data.actor)
+                intent.putExtra("poster", data.poster)
                 itemView.context.startActivity(intent)
             }
         }
