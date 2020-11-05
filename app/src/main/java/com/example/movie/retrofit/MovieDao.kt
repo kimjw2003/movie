@@ -15,6 +15,7 @@ interface MovieDao {
         @Query("nation") nation : String,
         @Query("title") title : String,
         @Query("movieSeq") movieSeq : String,
-        @Query("type") type : String
+        @Query("type") type : String,
+        @Query("listCount") listCount : String
     ): Call<Base>
 }

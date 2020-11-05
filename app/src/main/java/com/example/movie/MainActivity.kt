@@ -27,7 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMovie(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", "대한민국",
-             ""+search_Et.text.toString(), "", "극영화"
+             ""+search_Et.text.toString(), "", "극영화", "20"
         ).enqueue(object : retrofit2.Callback<Base> {
             @SuppressLint("CheckResult")
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
