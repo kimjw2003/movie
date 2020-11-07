@@ -33,6 +33,7 @@ data class Result(
     val genre: String?,
     val kmdbUrl: String?,
     val repRlsDate : String,
+    val repRatDate : String,
     val posters : String
 )
 

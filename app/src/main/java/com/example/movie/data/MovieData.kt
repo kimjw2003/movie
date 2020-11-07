@@ -1,7 +1,5 @@
 package com.example.movie.data
 
-import android.graphics.drawable.Drawable
-import android.media.Image
-import android.widget.ImageView
+import android.widget.TextView
 
-data class MovieData(val title: String, val actor: String, val poster:String)
+data class MovieData(val title: String, val actor: String, val poster:String, val country: String)

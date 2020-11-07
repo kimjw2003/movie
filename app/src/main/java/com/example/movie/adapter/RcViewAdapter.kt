@@ -1,6 +1,7 @@
 package com.example.movie.adapter
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -21,6 +22,7 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
         var title = itemView.findViewById<TextView>(R.id.movie_title_Tv)
         var actor = itemView.findViewById<TextView>(R.id.movie_actor_Tv)
         var poster = itemView.findViewById<ImageView>(R.id.movie_poster_Iv)
+        var country = itemView.findViewById<TextView>(R.id.country)
 
         fun bind(data : MovieData){
             title.text = data.title
@@ -35,6 +37,7 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
                 intent.putExtra("title", data.title)
                 intent.putExtra("actor", data.actor)
                 intent.putExtra("poster", data.poster)
+                intent.putExtra("countryInfo", data.country)
                 itemView.context.startActivity(intent)
             }
         }

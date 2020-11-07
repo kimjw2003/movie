@@ -8,7 +8,6 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
 import com.example.movie.adapter.RcViewAdapter
 import com.example.movie.data.Base
 import com.example.movie.data.MovieData
@@ -62,7 +61,7 @@ class MainActivity : AppCompatActivity() {
                             }
                             movieList.add(MovieData(it.titleEtc!!.substring(0, it.titleEtc!!.indexOf("^")),
                                 it.actors?.actor?.get(0)?.actorNm!!,
-                                if(it.posters.isNotEmpty()) it.posters.substring(0, postIdx) else ""))
+                                if(it.posters.isNotEmpty()) it.posters.substring(0, postIdx) else "", country.text.toString()))
                     }
 
                     val adapter = RcViewAdapter(movieList)
