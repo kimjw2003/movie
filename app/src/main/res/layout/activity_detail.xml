@@ -10,8 +10,8 @@
         android:id="@+id/detail_poster"
         android:layout_width="130dp"
         android:layout_height="200dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginStart="264dp"
+        android:layout_marginTop="128dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -19,23 +19,57 @@
         android:id="@+id/detail_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="192dp"
-        android:layout_marginTop="60dp"
-        android:text="TextView"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:text="title"
         android:textColor="#000000"
-        android:textSize="20sp"
+        android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/detail_actor"
+        android:id="@+id/detail_titleEng"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="200dp"
-        android:layout_marginTop="48dp"
-        android:text="TextView"
-        android:textColor="#000000"
-        android:textSize="18sp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="20dp"
+        android:text="titleEng"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
+
+    <TextView
+        android:id="@+id/detail_openDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="20dp"
+        android:text="openDate"
+        android:maxLength="4"
+        app:layout_constraintStart_toEndOf="@+id/detail_titleEng"
+        app:layout_constraintTop_toBottomOf="@+id/detail_title" />
+
+    <!--    <TextView-->
+<!--        android:id="@+id/detail_actor"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="192dp"-->
+<!--        android:layout_marginTop="48dp"-->
+<!--        android:text="actor"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/detail_director" />-->
+
+<!--    <TextView-->
+<!--        android:id="@+id/detail_director"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="24dp"-->
+<!--        android:layout_marginTop="52dp"-->
+<!--        android:text="director"-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="18sp"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/detail_poster"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/detail_title" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>
