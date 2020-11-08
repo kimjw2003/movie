@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity">
+    tools:context=".DetailActivity"
+    android:background="#76c4ac">
 
     <TextView
         android:id="@+id/detail_country"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/detail_poster"
@@ -30,7 +30,8 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="32dp"
         android:text="title"
-        android:textColor="#000000"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
         android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,6 +43,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="titleEng"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
@@ -52,6 +54,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:text="openDate"
+        android:textColor="#FFFFFF"
         android:maxLength="4"
         app:layout_constraintStart_toEndOf="@+id/detail_titleEng"
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />

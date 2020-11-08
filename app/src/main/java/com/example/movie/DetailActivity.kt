@@ -45,24 +45,27 @@ class DetailActivity : AppCompatActivity() {
             .enqueue(object : retrofit2.Callback<Base>{
                 override fun onResponse(call: Call<Base>, response: Response<Base>) {
                     Log.d("Logd", country)
-                    var titleEng_idx: Int = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEng!!.indexOf("(")
+
+                    var res = response.body()?.Data?.get(0)?.Result?.get(0)
+
+                    var titleEng_idx: Int = res?.titleEng!!.indexOf("(")
 
                     //detail_director.text = response.body()?.Data?.get(0)?.Result?.get(0)?.directors?.director?.get(0)?.directorNm
 
                     if(country == "미국"){                                                        //나라를 미국으로 설정하면
-                        detail_titleEng.text = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEng
+                        detail_titleEng.text = res.titleEng
                     }else {
-                        Log.d("Logd", response.body()?.Data?.get(0)?.Result?.get(0)?.titleEng!!)
-                        detail_titleEng.text = response.body()?.Data?.get(0)?.Result?.get(0)?.titleEng!!.substring(0, titleEng_idx)
+                        Log.d("Logd", res.titleEng!!)
+                        detail_titleEng.text = res.titleEng!!.substring(0, titleEng_idx)
                     }
 
                     Log.d("Logd", "out")
 
-                    if(response.body()?.Data?.get(0)?.Result?.get(0)?.repRlsDate == ""){               //만약에 개봉년도가 비어있다면
+                    if(res.repRlsDate == ""){               //만약에 개봉년도가 비어있다면
                         Log.d("Logd", "empty")
-                        detail_openDate.text = response.body()?.Data?.get(0)?.Result?.get(0)?.repRatDate //심의년도로 대체하라
+                        detail_openDate.text = res.repRatDate //심의년도로 대체하라
                     }else{
-                        detail_openDate.text = response.body()?.Data?.get(0)?.Result?.get(0)?.repRlsDate //아니면 그대로 개봉년도 넣고
+                        detail_openDate.text = res.repRlsDate //아니면 그대로 개봉년도 넣고
                     }
                 }
 
