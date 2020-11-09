@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.KeyEvent
+import android.view.KeyEvent.KEYCODE_ENTER
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
@@ -40,6 +42,12 @@ class MainActivity : AppCompatActivity() {
 
         search_Btn.setOnClickListener {
             getMovie()
+        }
+        search_Et.setOnKeyListener { v, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KEYCODE_ENTER){
+                getMovie()
+            }
+            true
         }
     }
 

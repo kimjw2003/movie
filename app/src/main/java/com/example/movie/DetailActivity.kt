@@ -7,18 +7,15 @@ import com.bumptech.glide.Glide
 import com.example.movie.data.Base
 import com.example.movie.retrofit.MovieClient
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.activity_main.*
 import retrofit2.Call
 import retrofit2.Response
-import java.security.cert.CRLSelector
-import javax.security.auth.callback.Callback
 
 class DetailActivity : AppCompatActivity() {
 
-    var title :String? = null
-    var actor : String? = null
-    var poster :String? = null
-    var country :String? = null
+    private var title :String? = null
+    private var actor : String? = null
+    private var poster :String? = null
+    private var country :String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +31,6 @@ class DetailActivity : AppCompatActivity() {
             .into(detail_poster)
 
         detail_title.text = title
-       // detail_actor.text = actor.toString()
 
         getDetailMovie()
     }
@@ -44,19 +40,17 @@ class DetailActivity : AppCompatActivity() {
             ""+detail_title.text.toString(), "", "극영화", "1")
             .enqueue(object : retrofit2.Callback<Base>{
                 override fun onResponse(call: Call<Base>, response: Response<Base>) {
-                    Log.d("Logd", country)
+                    Log.d("Logd", country)                                                  // 로그에 어느 나라가 찍혔는지 확인
 
-                    var res = response.body()?.Data?.get(0)?.Result?.get(0)
+                    val res = response.body()?.Data?.get(0)?.Result?.get(0)              // res에 저만큼 넣어서 코드간결화 가능
 
-                    var titleEng_idx: Int = res?.titleEng!!.indexOf("(")
+                    val titleEng_idx: Int = res?.titleEng!!.indexOf("(")                   // "("전까지만 출력하도록 설정
 
-                    //detail_director.text = response.body()?.Data?.get(0)?.Result?.get(0)?.directors?.director?.get(0)?.directorNm
-
-                    if(country == "미국"){                                                        //나라를 미국으로 설정하면
+                    if(country == "미국"){                                                        // 나라를 미국으로 설정하면
                         detail_titleEng.text = res.titleEng
                     }else {
-                        Log.d("Logd", res.titleEng!!)
-                        detail_titleEng.text = res.titleEng!!.substring(0, titleEng_idx)
+                        Log.d("Logd", res.titleEng)
+                        detail_titleEng.text = res.titleEng.substring(0, titleEng_idx)
                     }
 
                     Log.d("Logd", "out")

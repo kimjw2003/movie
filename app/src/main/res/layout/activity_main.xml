@@ -39,11 +39,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcView"
-        android:layout_width="415dp"
-        android:layout_height="580dp"
-        android:background="#76c4ac"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#bfbfbf"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/country_Sp" />
 
