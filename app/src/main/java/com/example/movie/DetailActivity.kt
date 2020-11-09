@@ -26,9 +26,9 @@ class DetailActivity : AppCompatActivity() {
         poster = intent.getStringExtra("poster")
         country = intent.getStringExtra("countryInfo")
 
-        Glide.with(applicationContext)
-            .load(poster)
-            .into(detail_poster)
+//        Glide.with(applicationContext)
+//            .load(poster)
+//            .into(detail_poster)
 
         detail_title.text = title
 

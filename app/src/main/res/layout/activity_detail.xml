@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DetailActivity"
-    android:background="#76c4ac">
+    tools:context=".DetailActivity">
 
     <TextView
         android:id="@+id/detail_country"
@@ -14,14 +13,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <ImageView
-        android:id="@+id/detail_poster"
-        android:layout_width="130dp"
-        android:layout_height="200dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="16dp"
-        app:layout_constraintStart_toEndOf="@+id/detail_openDate"
-        app:layout_constraintTop_toTopOf="parent" />
+<!--    <ImageView-->
+<!--        android:id="@+id/detail_poster"-->
+<!--        android:layout_width="130dp"-->
+<!--        android:layout_height="200dp"-->
+<!--        android:layout_marginStart="132dp"-->
+<!--        android:layout_marginTop="16dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toEndOf="@+id/detail_openDate"-->
+<!--        app:layout_constraintTop_toTopOf="parent" />-->
 
     <TextView
         android:id="@+id/detail_title"
@@ -31,7 +31,7 @@
         android:layout_marginTop="32dp"
         android:text="title"
         android:textStyle="bold"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:textSize="26sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,7 +43,7 @@
         android:layout_marginStart="28dp"
         android:layout_marginTop="20dp"
         android:text="titleEng"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
@@ -54,10 +54,29 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:text="openDate"
-        android:textColor="#FFFFFF"
+        android:textColor="#000000"
         android:maxLength="4"
         app:layout_constraintStart_toEndOf="@+id/detail_titleEng"
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs_main"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/detail_openDate"
+        app:tabGravity="fill"
+        app:tabMode="fixed" />
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tabLayout" />
 
     <!--    <TextView-->
 <!--        android:id="@+id/detail_actor"-->
