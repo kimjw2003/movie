@@ -64,6 +64,9 @@ class DetailActivity : AppCompatActivity() {
                     if(res.repRlsDate == ""){               //만약에 개봉년도가 비어있다면
                         Log.d("Logd", "개봉년도 is empty")
                         detail_openDate.text = res.repRatDate //심의년도로 대체하라
+                            if(res.repRatDate == "") {          //심의년도까지 비어있으면
+                                detail_openDate.text = "알수없음"
+                            }
                     }else{
                         detail_openDate.text = res.repRlsDate //아니면 그대로 개봉년도 넣고
                     }

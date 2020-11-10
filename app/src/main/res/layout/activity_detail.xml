@@ -48,6 +48,17 @@
         app:layout_constraintTop_toBottomOf="@+id/detail_title" />
 
     <TextView
+        android:id="@+id/nanugi"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="|"
+        android:textStyle="bold"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/tabs_main"
+        app:layout_constraintEnd_toStartOf="@id/detail_openDate"
+        app:layout_constraintStart_toEndOf="@id/detail_titleEng" />
+
+    <TextView
         android:id="@+id/detail_openDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
