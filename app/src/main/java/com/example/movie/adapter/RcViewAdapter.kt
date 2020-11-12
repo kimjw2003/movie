@@ -22,7 +22,6 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
         var title = itemView.findViewById<TextView>(R.id.movie_title_Tv)
         var actor = itemView.findViewById<TextView>(R.id.movie_actor_Tv)
         var poster = itemView.findViewById<ImageView>(R.id.movie_poster_Iv)
-        var country = itemView.findViewById<TextView>(R.id.country)
 
         fun bind(data : MovieData){
             title.text = data.title

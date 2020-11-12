@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".DetailActivity">
 
-    <TextView
-        android:id="@+id/detail_country"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
 <!--    <ImageView-->
 <!--        android:id="@+id/detail_poster"-->
 <!--        android:layout_width="130dp"-->
