@@ -80,7 +80,7 @@
         app:layout_constraintTop_toBottomOf="@+id/basic_genre_title" />
 
     <TextView
-        android:id="@+id/basic_summary_open"
+        android:id="@+id/basic_summary_run"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -90,5 +90,29 @@
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/basic_summary_country"
         app:layout_constraintTop_toBottomOf="@+id/basic_genre_title" />
+
+    <TextView
+        android:id="@+id/basic_open_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="28dp"
+        android:text="개봉일 |"
+        android:textColor="#545454"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basic_summary_title" />
+
+    <TextView
+        android:id="@+id/basic_open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:layout_marginStart="8dp"
+        android:text="개봉년도"
+        android:textColor="#545454"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@+id/basic_open_title"
+        app:layout_constraintTop_toBottomOf="@+id/basic_summary_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

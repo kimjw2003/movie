@@ -34,7 +34,8 @@ data class Result(
     val kmdbUrl: String?,
     val repRlsDate : String,
     val repRatDate : String,
-    val posters : String
+    val posters : String,
+    val releaseDate : String
 )
 
 data class Actors(

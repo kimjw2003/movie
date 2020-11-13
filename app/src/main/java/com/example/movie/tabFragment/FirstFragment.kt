@@ -1,6 +1,7 @@
 package com.example.movie.tabFragment
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,11 +38,15 @@ class FirstFragment : Fragment() {
 
                         basic_genre.text = res?.genre
                         basic_summary_country.text = res?.nation
-                            if (res?.repRlsDate!!.isEmpty()) {
-                                basic_summary_open.text = ""
+                        basic_summary_run.text = res?.runtime+"분"
+                            if (res?.repRlsDate == "") {
+                                basic_open.text = "알수없음"
                             } else {
-                                basic_summary_open.text = res.repRlsDate
+                                basic_open.text = res!!.repRlsDate
                             }
+
+                        // --------이미지넣기---------------------------------------------------------------------------------------------
+
                         var postIdx = res.posters.indexOf("|")
                         if(postIdx == -1){
                             postIdx = res.posters.length
@@ -50,10 +55,11 @@ class FirstFragment : Fragment() {
                         Glide.with(context!!)
                                 .load(poster)
                                 .into(basic_poster)
-                    }
+                        }
+                        //---------------------------------------------------------------------------------------------------------------
 
                     override fun onFailure(call: Call<Base>, t: Throwable) {
-
+                            Log.d("Logd", t.message.toString())
                     }
 
                 })
