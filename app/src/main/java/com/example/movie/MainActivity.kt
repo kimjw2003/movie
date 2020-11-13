@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        var countryList = listOf("선택해 주세요","대한민국", "미국")
+        var countryList = listOf("대한민국", "미국")
 
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, countryList)
         country_Sp.adapter = adapter
