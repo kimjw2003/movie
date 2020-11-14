@@ -29,7 +29,7 @@ class MyPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
             0 -> "영화정보"
-            1 -> "풀연진/감독"
+            1 -> "출연진/감독"
             else -> {return "관련영상"}
         }
     }

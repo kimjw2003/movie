@@ -28,7 +28,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/basic_summary_open"
+        app:layout_constraintStart_toEndOf="@+id/basic_summary_run"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -114,5 +114,22 @@
         android:textSize="18sp"
         app:layout_constraintStart_toEndOf="@+id/basic_open_title"
         app:layout_constraintTop_toBottomOf="@+id/basic_summary_title" />
+
+    <TextView
+        android:id="@+id/basic_plot"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/plot_back"
+        android:scrollbars="vertical"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/basic_open_title"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

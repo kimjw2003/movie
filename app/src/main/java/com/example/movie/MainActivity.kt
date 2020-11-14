@@ -40,8 +40,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
+        rcView.visibility = View.GONE
         search_Btn.setOnClickListener {
             getMovie()
+            rcView.visibility = View.VISIBLE
         }
         search_Et.setOnKeyListener { v, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN && keyCode == KEYCODE_ENTER){
@@ -49,6 +51,9 @@ class MainActivity : AppCompatActivity() {
             }
             true
         }
+
+
+
     }
 
     private fun getMovie(){

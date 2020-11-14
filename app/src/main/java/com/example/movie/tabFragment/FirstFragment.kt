@@ -1,6 +1,7 @@
 package com.example.movie.tabFragment
 
 import android.os.Bundle
+import android.text.method.ScrollingMovementMethod
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -36,6 +37,8 @@ class FirstFragment : Fragment() {
                     override fun onResponse(call: Call<Base>, response: Response<Base>) {
                         val res = response.body()?.Data?.get(0)?.Result?.get(0)
 
+                        basic_plot.setMovementMethod(ScrollingMovementMethod())
+
                         basic_genre.text = res?.genre
                         basic_summary_country.text = res?.nation
                         basic_summary_run.text = res?.runtime+"분"
@@ -44,6 +47,7 @@ class FirstFragment : Fragment() {
                             } else {
                                 basic_open.text = res!!.repRlsDate
                             }
+                        basic_plot.text = res?.plots?.plot?.get(0)?.plotText
 
                         // --------이미지넣기---------------------------------------------------------------------------------------------
 
