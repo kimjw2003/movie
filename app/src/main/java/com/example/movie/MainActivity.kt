@@ -28,6 +28,7 @@ class MainActivity : AppCompatActivity() {
 
         var countryList = listOf("대한민국", "미국")
 
+        // 스피너 값에따라 결과값 달라지게하기
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, countryList)
         country_Sp.adapter = adapter
         country_Sp.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
@@ -37,22 +38,21 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-
             }
         }
 
+        // 리사이클러뷰 검색시에만 보이게하기
         rcView.visibility = View.GONE
         search_Btn.setOnClickListener {
             getMovie()
             rcView.visibility = View.VISIBLE
         }
 
+        // 확인 눌러도 검색하기
         search_Et.setOnEditorActionListener { v, actionId, event ->
             getMovie()
             true
         }
-
-
 
     }
 
