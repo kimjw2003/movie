@@ -39,15 +39,17 @@ class FirstFragment : Fragment() {
 
                         basic_plot.setMovementMethod(ScrollingMovementMethod())
 
-                        basic_genre.text = res?.genre
-                        basic_summary_country.text = res?.nation
-                        basic_summary_run.text = res?.runtime+"분"
-                            if (res?.repRlsDate == "") {
-                                basic_open.text = "알수없음"
+                        basic_genre.text = res?.genre                           // 영화장르
+                        basic_summary_country.text = res?.nation                // 제작국가
+                        basic_summary_run.text = res?.runtime+"분"              // 상영시간
+
+                            if (res?.repRlsDate == "") {                        // 개봉날짜
+                               basic_open.text = "알수없음"
                             } else {
                                 basic_open.text = res!!.repRlsDate
                             }
-                        basic_plot.text = res?.plots?.plot?.get(0)?.plotText
+
+                        basic_plot.text = res?.plots?.plot?.get(0)?.plotText    // 영롸내용,줄거리
 
                         // --------이미지넣기---------------------------------------------------------------------------------------------
 
