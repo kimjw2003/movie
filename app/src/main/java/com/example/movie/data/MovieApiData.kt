@@ -35,7 +35,8 @@ data class Result(
     val repRlsDate : String,
     val repRatDate : String,
     val posters : String,
-    val releaseDate : String
+    val releaseDate : String,
+    val Awards1 : String
 )
 
 data class Actors(

@@ -62,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
                 item_size.text = response.body()?.TotalCount.toString()
 
-                    var movieList = ArrayList<MovieData>()
+                    val movieList = ArrayList<MovieData>()
                         response.body()?.Data?.get(0)?.Result?.forEach {it ->       //response.body()?.Data?.get(0)?.Result -> it 으로 정의
                             var postIdx = it.posters.indexOf("|")
                             if(postIdx == -1){

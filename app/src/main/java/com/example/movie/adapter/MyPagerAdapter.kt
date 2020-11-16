@@ -10,7 +10,7 @@ import com.example.movie.tabFragment.ThirdFragment
 class MyPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
     override fun getItem(position: Int): Fragment {
-        return when (position) { //switch()문과 동일하다.
+        return when (position) {
             0 -> {
                 FirstFragment()
             }
@@ -23,15 +23,14 @@ class MyPagerAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
     }
 
     override fun getCount(): Int {
-        return 3 //3개니깐
+        return 3
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
         return when (position){
             0 -> "영화정보"
             1 -> "출연진/감독"
-            else -> {return "관련영상"}
+            else -> {return "수상내역"}
         }
     }
-
 }
