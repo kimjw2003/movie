@@ -1,19 +1,16 @@
 package com.example.movie.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.movie.DetailActivity
 import com.example.movie.R
 import com.example.movie.data.MovieData
-import kotlinx.android.synthetic.main.activity_main.view.*
 import java.util.ArrayList
 
 class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter<RcViewAdapter.Holder>(){
@@ -22,7 +19,6 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
         var title = itemView.findViewById<TextView>(R.id.movie_title_Tv)
         var actor = itemView.findViewById<TextView>(R.id.movie_actor_Tv)
         var poster = itemView.findViewById<ImageView>(R.id.movie_poster_Iv)
-        var itemsize = itemView.findViewById<TextView>(R.id.item_size)
 
         fun bind(data : MovieData){
             title.text = data.title

@@ -6,7 +6,6 @@ import android.util.Log
 import com.example.movie.adapter.MyPagerAdapter
 import com.example.movie.data.Base
 import com.example.movie.retrofit.MovieClient
-import com.example.movie.tabFragment.FirstFragment
 import kotlinx.android.synthetic.main.activity_detail.*
 import retrofit2.Call
 import retrofit2.Response
@@ -34,10 +33,6 @@ class DetailActivity : AppCompatActivity() {
         country = intent.getStringExtra("countryInfo")
 
         detail_title.text = title
-
-//        Glide.with(applicationContext)
-//            .load(poster)
-//            .into(detail_poster)
 
         getDetailMovie()
     }
