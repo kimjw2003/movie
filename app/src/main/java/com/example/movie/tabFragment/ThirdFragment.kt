@@ -34,12 +34,11 @@ class ThirdFragment : Fragment() {
                     override fun onResponse(call: Call<Base>, response: Response<Base>) {
                         val res = response.body()?.Data?.get(0)?.Result?.get(0)
 
-                        val str = res?.Awards1
-                        val arr = str?.split("|")
-                        Log.d("Logd", arr?.get(0))
-
                         val hornerList = ArrayList<HornerData>()
-                        hornerList.add(HornerData(arr?.get(0).toString()))
+                            response.body()?.Data?.get(0)?.Result?.forEach { it ->
+                                var hornerIdx = it.Awards1.split("|").map { HornerData(it) }
+                                hornerList.addAll(hornerIdx)
+                            }
 
                         val adapter = HornerRcViewAdapter(hornerList)
                         horner_rcView.adapter = adapter

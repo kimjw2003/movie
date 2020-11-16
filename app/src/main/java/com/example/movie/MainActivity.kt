@@ -54,13 +54,16 @@ class MainActivity : AppCompatActivity() {
 
     private fun getMovie(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", ""+country.text.toString(),
-             ""+search_Et.text.toString(), "", "극영화", "20"
+             ""+search_Et.text.toString(), "", "극영화", "500"
         ).enqueue(object : retrofit2.Callback<Base> {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
                 Log.d("Logd", "onResponse")
                 Log.d("Logd","검색된 영화 수 : "+ response.body()?.TotalCount.toString())
 
                 item_size.text = response.body()?.TotalCount.toString()
+                if(item_size.text.toString().toInt() > 500){
+                    item_size.text = "500(최대검색 건수)"
+                }
 
                     val movieList = ArrayList<MovieData>()
                         response.body()?.Data?.get(0)?.Result?.forEach {it ->       //response.body()?.Data?.get(0)?.Result -> it 으로 정의
