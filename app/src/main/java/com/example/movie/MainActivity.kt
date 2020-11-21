@@ -22,6 +22,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //스피너 값 내용
         var countryList = listOf("대한민국", "미국")
 
         // 스피너 값에따라 결과값 달라지게하기
