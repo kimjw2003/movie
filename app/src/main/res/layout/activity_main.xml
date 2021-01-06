@@ -47,7 +47,7 @@
         android:layout_marginTop="28dp"
         android:layout_marginStart="8dp"
         android:text="결과 수 :"
-        android:textColor="#000000"
+        android:textColor="#00ff0000"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search_Et" />
 

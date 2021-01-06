@@ -14,6 +14,7 @@ import com.example.movie.retrofit.MovieClient
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_first.*
+import kotlinx.android.synthetic.main.fragment_first.view.*
 import okhttp3.internal.applyConnectionSpec
 import retrofit2.Call
 import retrofit2.Response
@@ -27,6 +28,7 @@ class FirstFragment : Fragment() {
         val view = inflater.inflate(R.layout.fragment_first, container, false)
 
         getFirstData()
+        view.basic_genre.isSelected = true
         return view
     }
 

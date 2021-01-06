@@ -1,5 +1,6 @@
 package com.example.movie
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -43,6 +44,8 @@ class MainActivity : AppCompatActivity() {
         search_Btn.setOnClickListener {
             getMovie()
             rcView.visibility = View.VISIBLE
+
+            item_size_title.setTextColor(Color.parseColor("#000000"))
         }
 
         // 확인 눌러도 검색하기
@@ -50,8 +53,7 @@ class MainActivity : AppCompatActivity() {
             getMovie()
             true
         }
-
-    }
+    } //onCreate
 
     private fun getMovie(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", ""+country.text.toString(),
