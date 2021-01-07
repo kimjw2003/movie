@@ -74,6 +74,7 @@
         app:layout_constraintTop_toBottomOf="@+id/director_image" />
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/actor_rcView"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_marginTop="8dp"

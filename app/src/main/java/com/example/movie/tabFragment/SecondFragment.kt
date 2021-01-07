@@ -44,8 +44,8 @@ class SecondFragment : Fragment() {
                         actorList.add(ActorData(res?.actors?.actor?.get(0)?.actorNm.toString()))
 
                         val adapter = ActorAdapter(actorList)
-                        rcView.adapter = adapter
-                        rcView.layoutManager = LinearLayoutManager(context)
+                        actor_rcView.adapter = adapter
+                        actor_rcView.layoutManager = LinearLayoutManager(context).also { it.orientation = LinearLayoutManager.HORIZONTAL }
                     }
 
                     override fun onFailure(call: Call<Base>, t: Throwable) {

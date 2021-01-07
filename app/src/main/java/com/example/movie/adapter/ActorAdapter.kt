@@ -11,9 +11,10 @@ import com.example.movie.data.ActorData
 
 class ActorAdapter(val actorData: ArrayList<ActorData>) : RecyclerView.Adapter<ActorAdapter.Holder>() {
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView){
+        var name = itemView.findViewById<TextView>(R.id.actor_name)
 
         fun bind(data : ActorData){
-
+            name.text = data.Name
         }
     }
 
