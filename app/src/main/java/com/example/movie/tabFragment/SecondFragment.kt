@@ -6,10 +6,16 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.movie.R
+import com.example.movie.adapter.ActorAdapter
+import com.example.movie.adapter.RcViewAdapter
+import com.example.movie.data.ActorData
 import com.example.movie.data.Base
 import com.example.movie.retrofit.MovieClient
 import kotlinx.android.synthetic.main.activity_detail.*
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.fragment_second.*
 import retrofit2.Call
 import retrofit2.Response
 
@@ -29,7 +35,17 @@ class SecondFragment : Fragment() {
                 "" + activity?.detail_title!!.text, "", "극영화", "1")
                 .enqueue(object : retrofit2.Callback<Base>{
                     override fun onResponse(call: Call<Base>, response: Response<Base>) {
+                        var res = response.body()?.Data?.get(0)?.Result?.get(0)
 
+                        director_name.text = res?.directors?.director?.get(0)?.directorNm
+                        director_engname.text = res?.directors?.director?.get(0)?.directorEnNm
+
+                        var actorList = ArrayList<ActorData>()
+                        actorList.add(ActorData(res?.actors?.actor?.get(0)?.actorNm.toString()))
+
+                        val adapter = ActorAdapter(actorList)
+                        rcView.adapter = adapter
+                        rcView.layoutManager = LinearLayoutManager(context)
                     }
 
                     override fun onFailure(call: Call<Base>, t: Throwable) {
