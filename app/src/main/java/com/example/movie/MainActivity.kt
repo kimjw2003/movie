@@ -19,6 +19,8 @@ import retrofit2.Response
 
 class MainActivity : AppCompatActivity() {
 
+    var country : String? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -32,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         country_Sp.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedValue = countryList[position]
-                country.text = selectedValue
+                country = selectedValue
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -56,7 +58,7 @@ class MainActivity : AppCompatActivity() {
     } //onCreate
 
     private fun getMovie(){
-        MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", ""+country.text.toString(),
+        MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", ""+country.toString(),
              ""+search_Et.text.toString(), "", "극영화", "500"
         ).enqueue(object : retrofit2.Callback<Base> {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
@@ -76,7 +78,7 @@ class MainActivity : AppCompatActivity() {
                             }
                             movieList.add(MovieData(it.titleEtc!!.substring(0, it.titleEtc.indexOf("^")),
                                 it.actors?.actor?.get(0)?.actorNm!!,
-                                if(it.posters.isNotEmpty()) it.posters.substring(0, postIdx) else "", country.text.toString()))
+                                if(it.posters.isNotEmpty()) it.posters.substring(0, postIdx) else "", country.toString(), it.ratings.rating[0].ratingGrade))
                     }
 
                     val adapter = RcViewAdapter(movieList)

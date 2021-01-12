@@ -1,6 +1,7 @@
 package com.example.movie.adapter
 
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,11 @@ class RcViewAdapter (val movieData: ArrayList<MovieData>) : RecyclerView.Adapter
         fun bind(data : MovieData){
             title.text = data.title
             actor.text = data.actor
+
+
+            if(data.rating.contains("18세관람가")){
+                title.setTextColor(Color.parseColor("#ff0000"))
+            }
 
             Glide.with(itemView.context)
                 .load(data.poster)

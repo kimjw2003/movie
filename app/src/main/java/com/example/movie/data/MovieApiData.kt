@@ -36,7 +36,8 @@ data class Result(
     val repRatDate : String,
     val posters : String,
     val releaseDate : String,
-    val Awards1 : String
+    val Awards1 : String,
+    val ratings : Ratings
 )
 
 data class Actors(
@@ -66,4 +67,11 @@ data class Plots(
 data class Plot(
     val plotLang: String?,
     val plotText: String?
+)
+
+data class Ratings(
+        val rating : List<Rating>
+)
+data class Rating(
+        val ratingGrade : String
 )
