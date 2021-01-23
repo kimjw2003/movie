@@ -1,5 +1,6 @@
 package com.example.movie
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -45,8 +46,14 @@ class DetailActivity : AppCompatActivity() {
                     Log.d("Logd", country)                                                  // 로그에 어느 나라가 찍혔는지 확인
                     val res = response.body()?.Data?.get(0)?.Result?.get(0)              // res에 저만큼 넣어서 코드간결화 가능
 
+                    Log.d("Logd", res?.ratings?.rating?.get(0)?.ratingGrade.toString())
+                    val rating = res?.ratings?.rating?.get(0)?.ratingGrade.toString()
+
                     val titleEng_idx: Int = res?.titleEng!!.indexOf("(")                   // "("전까지만 출력하도록 설정
 
+                    if(rating.contains("청소년") || rating.contains("미성년")){
+                        detail_title.setTextColor(Color.parseColor("#ff0000"))
+                    }
 
                     if(res.titleEng.contains("(")){
                         Log.d("Logd", "(포함")

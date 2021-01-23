@@ -62,6 +62,7 @@ class MainActivity : AppCompatActivity() {
              ""+search_Et.text.toString(), "", "극영화", "500"
         ).enqueue(object : retrofit2.Callback<Base> {
             override fun onResponse(call: Call<Base>, response: Response<Base>) {
+                //Log.d("Logd", response.body()?.Data?.get(0)?.Result?.get(0)?.ratings?.rating?.get(0)?.ratingGrade.toString())
                 Log.d("Logd", "onResponse")
                 Log.d("Logd","검색된 영화 수 : "+ response.body()?.TotalCount.toString())
 
@@ -78,7 +79,7 @@ class MainActivity : AppCompatActivity() {
                             }
                             movieList.add(MovieData(it.titleEtc!!.substring(0, it.titleEtc.indexOf("^")),
                                 it.actors?.actor?.get(0)?.actorNm!!,
-                                if(it.posters.isNotEmpty()) it.posters.substring(0, postIdx) else "", country.toString(), it.ratings.rating[0].ratingGrade))
+                                if(it.posters.isNotEmpty()) it.posters.substring(0, postIdx) else "", country.toString()))
                     }
 
                     val adapter = RcViewAdapter(movieList)
