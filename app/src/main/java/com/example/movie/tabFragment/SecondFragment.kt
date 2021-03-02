@@ -14,7 +14,6 @@ import com.example.movie.data.ActorData
 import com.example.movie.data.Base
 import com.example.movie.retrofit.MovieClient
 import kotlinx.android.synthetic.main.activity_detail.*
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_second.*
 import retrofit2.Call
 import retrofit2.Response
