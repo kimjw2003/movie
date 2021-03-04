@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import com.example.movie.adapter.MyPagerAdapter
-import com.example.movie.data.Base
+import com.example.movie.data.MovieBase
 import com.example.movie.retrofit.MovieClient
 import kotlinx.android.synthetic.main.activity_detail.*
 import retrofit2.Call
@@ -41,8 +41,8 @@ class DetailActivity : AppCompatActivity() {
     private fun getDetailMovie(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", "",
             ""+title, "", "극영화", "1")
-            .enqueue(object : retrofit2.Callback<Base>{
-                override fun onResponse(call: Call<Base>, response: Response<Base>) {
+            .enqueue(object : retrofit2.Callback<MovieBase>{
+                override fun onResponse(call: Call<MovieBase>, response: Response<MovieBase>) {
                     Log.d("Logd", country)                                                  // 로그에 어느 나라가 찍혔는지 확인
                     val res = response.body()?.Data?.get(0)?.Result?.get(0)              // res에 저만큼 넣어서 코드간결화 가능
 
@@ -76,7 +76,7 @@ class DetailActivity : AppCompatActivity() {
 
                 }
 
-                override fun onFailure(call: Call<Base>, t: Throwable) {
+                override fun onFailure(call: Call<MovieBase>, t: Throwable) {
                 }
             })
     }

@@ -74,28 +74,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tabs_main" />
 
-    <!--    <TextView-->
-<!--        android:id="@+id/detail_actor"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="192dp"-->
-<!--        android:layout_marginTop="48dp"-->
-<!--        android:text="actor"-->
-<!--        android:textColor="#000000"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/detail_director" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/detail_director"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginStart="24dp"-->
-<!--        android:layout_marginTop="52dp"-->
-<!--        android:text="director"-->
-<!--        android:textColor="#000000"-->
-<!--        android:textSize="18sp"-->
-<!--        app:layout_constraintStart_toEndOf="@+id/detail_poster"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/detail_title" />-->
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,6 +1,6 @@
 package com.example.movie.data
 
-data class Base(
+data class MovieBase(
     val Query: String?,
     val KMAQuery: String?,
     val TotalCount: Number?,

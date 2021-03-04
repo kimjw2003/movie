@@ -1,6 +1,6 @@
 package com.example.movie.retrofit
 
-import com.example.movie.data.Base
+import com.example.movie.data.MovieBase
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -17,5 +17,5 @@ interface MovieDao {
         @Query("movieSeq") movieSeq : String,
         @Query("type") type : String,
         @Query("listCount") listCount : String
-    ): Call<Base>
+    ): Call<MovieBase>
 }
