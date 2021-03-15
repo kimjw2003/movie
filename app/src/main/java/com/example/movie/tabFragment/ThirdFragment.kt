@@ -12,7 +12,6 @@ import com.example.movie.adapter.HornerRcViewAdapter
 import com.example.movie.data.HornerData
 import com.example.movie.data.MovieBase
 import com.example.movie.retrofit.MovieClient
-import com.example.movie.retrofit.MovieClient.retrofitService
 import kotlinx.android.synthetic.main.activity_detail.*
 import kotlinx.android.synthetic.main.fragment_third.*
 import kotlinx.coroutines.CoroutineScope
@@ -31,12 +30,12 @@ class ThirdFragment : Fragment() {
         return view
     }
 
+
     private fun getAwards(){
         MovieClient.retrofitService.getMovie("kmdb_new2", "Y", "1QS3HYA074P8X6W4TEF3", "",
                 "" + activity?.detail_title!!.text, "", "극영화", "1")
                 .enqueue(object : retrofit2.Callback<MovieBase>{
                     override fun onResponse(call: Call<MovieBase>, response: Response<MovieBase>) {
-                        val res = response.body()?.Data?.get(0)?.Result?.get(0)
 
                         val hornerList = ArrayList<HornerData>()
                             response.body()?.Data?.get(0)?.Result?.forEach { it ->
@@ -51,6 +50,7 @@ class ThirdFragment : Fragment() {
                                 noHorner_Tv.visibility = View.GONE
                             }
                         }
+
                         val adapter = HornerRcViewAdapter(hornerList)
                         horner_rcView.adapter = adapter
                         horner_rcView.layoutManager = LinearLayoutManager(context)

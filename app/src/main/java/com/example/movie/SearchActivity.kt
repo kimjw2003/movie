@@ -46,8 +46,9 @@ class SearchActivity : AppCompatActivity() {
         }
 
         // 리사이클러뷰 검색시에만 보이게하기
-        rcView.visibility = View.GONE
+
         search_Btn.setOnClickListener {
+            progress.visibility = View.VISIBLE
             getMovie()
             rcView.visibility = View.VISIBLE
 
@@ -56,6 +57,7 @@ class SearchActivity : AppCompatActivity() {
 
         // 확인 눌러도 검색하기
         search_Et.setOnEditorActionListener { v, actionId, event ->
+            progress.visibility = View.VISIBLE
             getMovie()
             true
         }
@@ -69,6 +71,8 @@ class SearchActivity : AppCompatActivity() {
             override fun onResponse(call: Call<MovieBase>, response: Response<MovieBase>) {
                 Log.d("Logd", "onResponse")
                 Log.d("Logd","검색된 영화 수 : "+ response.body()?.TotalCount.toString())
+
+                progress.visibility = View.GONE
 
                 item_size.text = response.body()?.TotalCount.toString()
                 if(item_size.text.toString().toInt() > 500){

@@ -16,11 +16,6 @@ class HornerRcViewAdapter(val hornerData: ArrayList<HornerData>):RecyclerView.Ad
 
         fun bind(data: HornerData) {
             horner.text = data.hornerData
-            Log.d("Logd", "asdfasdf")
-
-            if(hornerData.size == 1){
-                Log.d("Logd", "horner size is : ${hornerData.size}")
-            }
         }
     }
 
